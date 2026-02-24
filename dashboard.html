@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+<body>
+
+<h1>Dashboard</h1>
+
+<p id="info"></p>
+
+<button onclick="logout()">Cerrar sesión</button>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  const usuario = localStorage.getItem("usuario");
+  const rol = localStorage.getItem("rol");
+
+  if (!usuario || !rol) {
+    window.location.href = "index.html";
+    return;
+  }
+
+  document.getElementById("info").textContent =
+    "Bienvenido " + usuario + " | Rol: " + rol;
+
+});
+
+function logout() {
+  localStorage.clear();
+  window.location.href = "index.html";
+}
+
+</script>
+
+</body>
+</html>
